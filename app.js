@@ -17,14 +17,14 @@ app.use('/api', urlRouter)
 
 
 mongoose
-    .connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true })
+    .connect(process.env.MONGO_URI)
     .then(()=>{
-        app.listen(3000, ()=>{
-            console.log('Server started on Port: 3000');
-        })
         console.log(('MONGO DB CONNECTED'));
     })
     .catch(e=>{
         console.log(e);
     })
 
+app.listen(3000, ()=>{
+    console.log('server on port 3000');
+})
