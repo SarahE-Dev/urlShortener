@@ -1,0 +1,16 @@
+{
+  "name": "littleid",
+  "repo": "binocarlos/littleid",
+  "description": "make a random id of X chars long",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}
