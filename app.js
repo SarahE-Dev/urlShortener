@@ -9,6 +9,7 @@ const urlRouter = require('./routes/user/model/urlRouter')
 app.use(cors());
 app.use(express.json());
 app.use(logger('dev'))
+app.use(express.urlencoded({extended: true}))
 
 const mongoose = require('mongoose');
 
