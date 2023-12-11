@@ -16,7 +16,7 @@ app.use('/api/shorturl', urlRouter)
 
 
 mongoose
-    .connect('mongodb://127.0.0.1:27017/backend-api')
+    .connect(process.env.MONGO_URI)
     .then(()=>{
         app.listen(3001, ()=>{
             console.log('Server started on Port: 3001');
