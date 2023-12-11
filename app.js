@@ -12,7 +12,7 @@ app.use(logger('dev'))
 
 const mongoose = require('mongoose');
 
-app.use('/api/shorturl', urlRouter)
+app.use('/api', urlRouter)
 
 
 mongoose
