@@ -49,17 +49,15 @@ async function makeShortURL(req, res){
 
 async function findShortURL(req, res){
     try {
-        const foundShort = await URL.findOne({
-            short_url: req.params.short_url
-        })
-        if(foundShort){
-            res.redirect(foundShort.original_url)
-        }else{
-            res.status(404).json('No URL found')
-        }
-    } catch (error) {
-        res.status(500).json({"message": 'error', "error": error})
-    }
+		const foundOne = await URL.findOne({ short_url: req.params.short_url });
+		res.redirect(foundOne.original_url);
+	} catch (error) {
+		res.status(500).json({message: 'error', error: error});
+	}
 }
+
+
+
+
 
 module.exports = {makeShortURL, findShortURL}
