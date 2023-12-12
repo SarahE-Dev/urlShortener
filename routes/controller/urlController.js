@@ -22,7 +22,7 @@ async function makeShortURL(req, res){
     console.log(req.body);
     const url = req.body.url
     const short = littleid()
-    if(!validUrl.isUri(url)){
+    if(!url.startsWith('https://')){
         res.status(401).json({
             "error": "invalid URL"
         })
