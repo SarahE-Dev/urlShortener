@@ -19,7 +19,7 @@ function isUrlValid(str) {
 
 async function makeShortURL(req, res){
     console.log(req.body);
-    const url = req.body.url_input
+    const url = req.body.url
     const short = littleid()
     if(!isUrlValid(url)){
         res.status(401).json({

@@ -4,7 +4,7 @@ const {findShortURL, makeShortURL} = require('../../controller/urlController')
 
 router.post('/', makeShortURL)
 
-router.get('/:short_url', findShortURL)
+router.get('/:short_url?', findShortURL)
 
 
 
