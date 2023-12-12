@@ -13,7 +13,11 @@ app.use(express.urlencoded({extended: true}))
 
 const mongoose = require('mongoose');
 
-app.use('/api', urlRouter)
+app.get('/api/hello', function(req, res) {
+    res.json({ greeting: 'hello API' });
+  });
+
+app.use('/api/shorturl', urlRouter)
 
 
 mongoose
