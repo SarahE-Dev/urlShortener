@@ -13,6 +13,8 @@ app.use(express.urlencoded({extended: true}))
 
 const mongoose = require('mongoose');
 
+const urlArray = [];
+
 app.get('/', function(req, res) {
     res.sendFile(process.cwd() + '/views/index.html');
   });
@@ -36,3 +38,4 @@ mongoose
 app.listen(3000, ()=>{
     console.log('server on port 3000');
 })
+

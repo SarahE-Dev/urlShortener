@@ -4,6 +4,8 @@ const validUrl = require('valid-url')
 
 const URL = require('../user/model/Url');
 
+const urlArray = []
+
 function isUrlValid(str) {
     const pattern = new RegExp(
       '^(https?:\\/\\/)?' + // protocol
@@ -28,19 +30,24 @@ async function makeShortURL(req, res){
         })
     }else{
         try {
-            let foundOne = await URL.findOne({original_url: url})
+            // let foundOne = await URL.findOne({original_url: url})
+            let foundOne = urlArray.find(elem=>elem.original_url === url)
             if(foundOne){
                 res.json({
                     "original_url": foundOne.original_url,
                     "short_url": foundOne.short_url
-                    
                 })
             }else{
-                let newURL = new URL({
-                    original_url: url,
-                    short_url: short
-                })
-                await newURL.save()
+                // let newURL = new URL({
+                //     original_url: url,
+                //     short_url: short
+                // })
+                // await newURL.save()
+                let newURL = {
+                    "original_url": url,
+                    "short_url": short
+                }
+                urlArray.push(newURL)
                 res.json({"original_url": newURL.original_url, "short_url": newURL.short_url})
             }
         } catch (error) {
