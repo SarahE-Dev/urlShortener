@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const littleid = require('littleid')
+const littleid = require('littleid');
+const validUrl = require('valid-url')
 
 const URL = require('../user/model/Url');
 
@@ -21,7 +22,7 @@ async function makeShortURL(req, res){
     console.log(req.body);
     const url = req.body.url
     const short = littleid()
-    if(!isUrlValid(url)){
+    if(!validUrl.isUri(url)){
         res.status(401).json({
             "error": "invalid URL"
         })
