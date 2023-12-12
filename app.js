@@ -13,6 +13,10 @@ app.use(express.urlencoded({extended: true}))
 
 const mongoose = require('mongoose');
 
+app.get('/', function(req, res) {
+    res.sendFile(process.cwd() + '/views/index.html');
+  });
+
 app.get('/api/hello', function(req, res) {
     res.json({ greeting: 'hello API' });
   });
